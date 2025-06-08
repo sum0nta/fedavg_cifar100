@@ -94,7 +94,7 @@ class Server:
         averaged_soln = copy.deepcopy(self.model)
         for key, value in base.items():
             if total_weight != 0:
-                averaged_soln[key] = value.to('cuda') / total_weight
+                averaged_soln[key] = value.to('cpu') / total_weight
 
         # diff = sum((x - y).abs().sum() for x, y in zip(self.model.values(), averaged_soln.values()))
         # print("before and after difference: ", diff)

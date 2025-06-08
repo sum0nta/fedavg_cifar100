@@ -1,0 +1,7 @@
+train_accuracy: 1.008, 10th percentile: 0, 50th percentile: 0, 90th percentile 1.6
+train_loss: 4.6065, 10th percentile: 4.55405, 50th percentile: 4.61119, 90th percentile 4.65682
+--- Round 1 of 3: Training 10 Clients ---
+--- Round 2 of 3: Training 10 Clients ---
+--- Round 3 of 3: Training 10 Clients ---
+train_accuracy: 1.016, 10th percentile: 0, 50th percentile: 0, 90th percentile 0.2
+train_loss: 4.81405, 10th percentile: 4.18403, 50th percentile: 4.82257, 90th percentile 5.55391

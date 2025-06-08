@@ -44,7 +44,7 @@ def main():
     if 'cifar' in args.dataset:
         data_dir = os.path.join('..', 'data', args.dataset, 'data', 'train')
         train_file = os.listdir(data_dir)
-        alpha = train_file[0].split('train_')[1][:-5]
+        alpha = 0.5 #train_file[0].split('train_')[1][:-5]
         print("Alpha:", alpha)
 
     # Experiment parameters (e.g. num rounds, clients per round, lr, etc)
@@ -60,7 +60,7 @@ def main():
         model_params = tuple(model_params_list)
 
     # Setup GPU
-    device = torch.device(args.device if torch.cuda.is_available else 'cpu')
+    device = torch.device('cpu')
 
     # Create client model, and share params with server model
     client_model = ClientModel(*model_params, device)
@@ -262,7 +262,15 @@ def print_stats(
     test_metrics = print_metrics(test_stat_metrics, test_num_samples, fp, prefix='{}_'.format(eval_set))
     writer(num_round, test_stat_metrics, eval_set)
 
-    return val_metrics, test_metrics
+    if val_metrics and test_metrics:
+        return val_metrics, test_metrics
+    elif test_metrics:
+        return [0.0, 0.0], test_metrics
+    elif val_metrics:
+        return val_metrics, [0.0, 0.0]
+    else:
+        print("Warning: Validation metrics are empty.")
+        return [0.0, 0.0], [0.0, 0.0]
 
 
 def print_metrics(metrics, weights, fp, prefix=''):

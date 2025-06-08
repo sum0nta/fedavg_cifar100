@@ -1,0 +1,7 @@
+train_accuracy: 1.008, 10th: 0.0, 50th: 0.0, 90th: 1.6
+train_loss: 4.606502942810058, 10th: 4.554045076751709, 50th: 4.61118830871582, 90th: 4.656818313598633
+--- Round 1 of 3: Training 10 Clients ---
+--- Round 2 of 3: Training 10 Clients ---
+--- Round 3 of 3: Training 10 Clients ---
+train_accuracy: 1.016, 10th: 0.0, 50th: 0.0, 90th: 0.2
+train_loss: 4.8140458102417, 10th: 4.184030295562744, 50th: 4.822568119049072, 90th: 5.55390986328125
